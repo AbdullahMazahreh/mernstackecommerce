@@ -1,8 +1,17 @@
-import React, { Fragment } from "react";
-import "./navbar.css"
+import React, { Fragment, useContext } from "react";
+import "./navbar.css";
 import { Button } from "../Index";
+import { UserContext } from "../../context/userContext";
+import { useNavigate, Link } from "react-router-dom";
 
 function Navbar() {
+  const { isSignedIn, userId, setIsSignedIn } = useContext(UserContext);
+  const naviagte = useNavigate();
+  const logoutHandler = () => {
+    setIsSignedIn(false);
+    naviagte("/login");
+  };
+
   return (
     <Fragment>
       <nav class="bg-gray-50 border-gray-200 dark:bg-gray-900">
@@ -18,12 +27,23 @@ function Navbar() {
             </span>
           </a>
           <div class="flex items-center">
-            <a
-              href="/"
-              class="text-lg text-blue-600 dark:text-blue-500 hover:underline"
-            >
-              <Button placeholder="Login" color="gray"/>
-            </a>
+            {!isSignedIn ? (
+              <Link
+                to="signup"
+                class="text-lg text-blue-600 dark:text-blue-500 hover:underline"
+              >
+                <Button placeholder="Login" color="gray" />
+              </Link>
+            ) : (
+              <div>
+                {userId.username}
+                <Button
+                  placeholder="Log Out"
+                  color="gray"
+                  clickFunction={logoutHandler}
+                />
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -32,36 +52,25 @@ function Navbar() {
           <div class="flex items-center">
             <ul class="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/home"
                   class="text-white dark:text-white hover:underline"
                   aria-current="page"
                 >
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/products"
                   class="text-white dark:text-white hover:underline"
                 >
-                  Company
-                </a>
+                  Products
+                </Link>
               </li>
               <li>
-                <a
-                  href="/"
-                  class="text-white dark:text-white hover:underline"
-                >
-                  Team
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/"
-                  class="text-white dark:text-white hover:underline"
-                >
-                  Features
+                <a href="/" class="text-white dark:text-white hover:underline">
+                  Cart
                 </a>
               </li>
             </ul>

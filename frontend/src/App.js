@@ -1,10 +1,15 @@
 import React, { Fragment } from "react";
 import {
-  Admindashboard,
   ProductsPage,
   Main,
   Login,
   Signup,
+  Admintable,
+  Editfrom,
+  NewProductForm,
+  Landingpage,
+  Navbar,
+  Footer,
 } from "./components/Index";
 import { Route, Routes, Navigate } from "react-router-dom";
 
@@ -13,14 +18,25 @@ function App() {
 
   return (
     <Fragment>
+      <Navbar />
       <Routes>
-        <Route path="/admin" to={<Admindashboard />}></Route>
+        <Route path="/home" element={<Landingpage />}></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
         {user && <Route path="/" exact element={<Main />} />}
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
         <Route path="/" element={<Navigate replace to="/login" />} />
+        <Route path="/admin/vendor-products" element={<Admintable />}></Route>
+        <Route
+          path="/vendor-products/edit/:userId"
+          element={<Editfrom />}
+        ></Route>
+        <Route
+          path="/vendor-products/addproduct"
+          element={<NewProductForm />}
+        ></Route>
       </Routes>
+      <Footer />
     </Fragment>
   );
 }
