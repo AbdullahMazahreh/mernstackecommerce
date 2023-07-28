@@ -1,24 +1,18 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Register from "./Pages/Register";
+import { Route, Routes, Navigate } from "react-router-dom";
+import Main from "./Pages/Home";
+import Signup from "./Pages/Register";
 import Login from "./Pages/Login";
-import React, { Fragment } from "react";
-import Home from "./Pages/Home";
-import Navbar from "./components/Navbar";
-import { UserContextProvider } from "./context/userContext";
 
 function App() {
+  const user = localStorage.getItem("token");
+
   return (
-    // <UserContextProvider>
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/register" element={<Register />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-      </Routes>
-    </>
-    // </UserContextProvider>
+    <Routes>
+      {user && <Route path="/" exact element={<Main />} />}
+      <Route path="/signup" exact element={<Signup />} />
+      <Route path="/login" exact element={<Login />} />
+      <Route path="/" element={<Navigate replace to="/login" />} />
+    </Routes>
   );
 }
 

@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+const Joi = require("joi");
+const passwordComplexity = require("joi-password-complexity");
 
 const currentCartSchema = new mongoose.Schema({
   product: {
@@ -49,4 +51,5 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
+
 module.exports = User;
