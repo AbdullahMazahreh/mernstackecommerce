@@ -1,6 +1,5 @@
 import React, { Fragment } from "react";
 import {
-  Admindashboard,
   ProductsPage,
   Main,
   Login,
@@ -8,6 +7,9 @@ import {
   Admintable,
   Editfrom,
   NewProductForm,
+  Landingpage,
+  Navbar,
+  Footer,
 } from "./components/Index";
 import { Route, Routes, Navigate } from "react-router-dom";
 
@@ -16,8 +18,9 @@ function App() {
 
   return (
     <Fragment>
+      <Navbar />
       <Routes>
-        <Route path="/admin" element={<Admindashboard />}></Route>
+        <Route path="/home" element={<Landingpage />}></Route>
         <Route path="/products" element={<ProductsPage />}></Route>
         {user && <Route path="/" exact element={<Main />} />}
         <Route path="/signup" exact element={<Signup />} />
@@ -33,6 +36,7 @@ function App() {
           element={<NewProductForm />}
         ></Route>
       </Routes>
+      <Footer />
     </Fragment>
   );
 }

@@ -1,6 +1,4 @@
-import Sidebar from "./sidebar/Sidebar";
 import Admintable from "./admintable/Admintable";
-import Admindashboard from "../pages/admindashboard/Admindashboard";
 import Input from "./input/Input";
 import Textarea from "./textarea/Textarea";
 import Editfrom from "./editform/Editfrom";
@@ -16,11 +14,16 @@ import ProductCard from "./productcard/ProductCard";
 import Main from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Register";
+import Hero from "../Component/Hero/Hero.jsx";
+import Gategory from "../Component/Gategory/Gategory.jsx";
+import Goodsnew from "../Component/Goods/Goodsnew/Goodsnew.jsx";
+import Goodspoular from "../Component/Goods/Goodspopular/Goodspoular.jsx";
+import Supersale from "../Component/Supersale/Supersale/Supersale.jsx";
+import Newblog from "../Component/Newblog/Newblog/Newblog.jsx";
+import Landingpage from "../pages/landingpage/Landingpage";
 
 export {
-  Sidebar,
   Admintable,
-  Admindashboard,
   Input,
   Textarea,
   Editfrom,
@@ -36,4 +39,11 @@ export {
   Main,
   Login,
   Signup,
+  Hero,
+  Gategory,
+  Goodsnew,
+  Goodspoular,
+  Supersale,
+  Newblog,
+  Landingpage,
 };

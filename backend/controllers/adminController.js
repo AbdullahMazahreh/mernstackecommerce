@@ -1,12 +1,4 @@
 const Product = require("../models/ProductModel");
-const multer = require("multer");
-const path = require("path");
-
-const storage = multer.diskStorage({
-  distination: (req, file ,cb) => {
-    
-  }
-})
 
 exports.createNewProduct = async (req, res) => {
   try {

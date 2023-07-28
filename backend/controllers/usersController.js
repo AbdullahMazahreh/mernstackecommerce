@@ -6,6 +6,17 @@ const User = require("../models/UserModel");
 //@Register new User
 //@Route: Post/api/users
 //@Access: Pubic
+const getAllUsers = async (req, res) => {
+  try {
+    const allUsers = await User.find();
+    res.status(200).json({
+      allusers: allUsers,
+    });
+  } catch (err) {
+    res.status(400);
+  }
+};
+
 const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body;
   if (!username || !email || !password) {
@@ -53,7 +64,7 @@ const loginUser = asyncHandler(async (req, res) => {
     // Successful login, send a response with the user details
 
     res.json({
-      _id: user.id,
+      id: user._id,
       name: user.username,
       email: user.email,
       token: generateToken(user._id),
@@ -82,4 +93,4 @@ const generateToken = (id) => {
   return jwb.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { registerUser, loginUser, getMe };
+module.exports = { registerUser, loginUser, getMe, getAllUsers };

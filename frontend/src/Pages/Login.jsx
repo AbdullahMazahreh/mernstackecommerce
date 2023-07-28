@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/userContext";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const { setUserId, setIsSignedIn } = useContext(UserContext);
+
+  const navigate = useNavigate();
 
   const handleChange = ({ target }) => {
     setData({ ...data, [target.name]: target.value });
@@ -13,25 +17,32 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:3001/api/users/login";
-      const { data: response } = await axios.post(url, data);
-      // Assuming that the response contains the user token after successful login
-      const { token } = response;
-      localStorage.setItem("token", token);
-      setError("");
-      // Redirect to the home page or any other protected route after successful login
-      // Replace "/home" with the route you want to redirect to
-      window.location.href = "/home";
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      } else {
-        setError("An error occurred. Please try again later.");
+      const allUsers = await axios.get(
+        "http://localhost:3001/api/users/allusers"
+      );
+      const allData = allUsers.data.allusers;
+      console.log(allData);
+      for (let i = 0; i < allData.length; i++) {
+        if (allData[i].email === data.email) {
+          if (allData[i].password === data.password) {
+            setUserId(allData[i]);
+            setIsSignedIn(true);
+            console.log("done");
+            navigate("/home");
+            break;
+          }
+        }
       }
+    } catch (error) {
+      // if (
+      //   error.response &&
+      //   error.response.status >= 400 &&
+      //   error.response.status <= 500
+      // ) {
+      //   setError(error.response.data.message);
+      // } else {
+      //   setError("An error occurred. Please try again later.");
+      // }
     }
   };
 
@@ -93,7 +104,7 @@ const Login = () => {
                       <div>
                         Don't have an Account?
                         <Link to="/signup">
-                          <a >Signup</a>
+                          <div>Signup</div>
                         </Link>
                       </div>
                       {error && <div className="text-danger mb-4">{error}</div>}
