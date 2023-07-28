@@ -1,9 +1,13 @@
-import './App.css';
-import React, { Fragment } from 'react';
+import "./App.css";
+import React, { Fragment } from "react";
+import { Admindashboard, ProductsPage } from "./components/Index";
 
 function App() {
   return (
-    <Fragment></Fragment>
+    <Fragment>
+      <ProductsPage />
+      {/* <Admindashboard /> */}
+    </Fragment>
   );
 }
 

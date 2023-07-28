@@ -1,0 +1,17 @@
+.productspage-container {
+  padding: 30px 12vw;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+}
+
+.header-products{
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.all-products-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
