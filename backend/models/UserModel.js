@@ -15,6 +15,19 @@ const currentCartSchema = new mongoose.Schema({
 
 const CurrentCart = mongoose.model("PastOrders", currentCartSchema);
 
+const notificationSchema = mongoose.Schema({
+  product: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Product",
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
+
+const Notification = mongoose.model("Notification", notificationSchema);
+
 const userSchema = new mongoose.Schema({
   username: {
     required: true,
@@ -48,6 +61,12 @@ const userSchema = new mongoose.Schema({
   token: {
     type: String,
   },
+  notification: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Notification",
+    },
+  ],
 });
 
 const User = mongoose.model("User", userSchema);

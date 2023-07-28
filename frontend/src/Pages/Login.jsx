@@ -93,7 +93,7 @@ const Login = () => {
                       <div>
                         Don't have an Account?
                         <Link to="/signup">
-                          <a type="button">Signup</a>
+                          <a >Signup</a>
                         </Link>
                       </div>
                       {error && <div className="text-danger mb-4">{error}</div>}
@@ -112,7 +112,7 @@ const Login = () => {
                     <img
                       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
                       className="img-fluid"
-                      alt="Sample image"
+                      alt="Sample"
                     />
                   </div>
                 </div>
