@@ -13,6 +13,9 @@ import ProductsPage from "../pages/productspage/ProductsPage";
 import Footer from "./footer/Footer";
 import FilterationSideBar from "./filterationsidebar/FilterationSideBar";
 import ProductCard from "./productcard/ProductCard";
+import Main from "../pages/Home";
+import Login from "../pages/Login";
+import Signup from "../pages/Register";
 
 export {
   Sidebar,
@@ -30,4 +33,7 @@ export {
   Footer,
   FilterationSideBar,
   ProductCard,
+  Main,
+  Login,
+  Signup,
 };

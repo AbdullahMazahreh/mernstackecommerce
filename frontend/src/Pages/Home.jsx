@@ -1,5 +1,3 @@
-import styles from "./home.module.css";
-
 const Main = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -7,12 +5,10 @@ const Main = () => {
   };
 
   return (
-    <div className={styles.main_container}>
-      <nav className={styles.navbar}>
+    <div>
+      <nav>
         <h1>fakebook</h1>
-        <button className={styles.white_btn} onClick={handleLogout}>
-          Logout
-        </button>
+        <button onClick={handleLogout}>Logout</button>
       </nav>
     </div>
   );

@@ -1,19 +1,21 @@
-import "./App.css";
 import React, { Fragment } from "react";
-import { Admindashboard, ProductsPage } from "./components/Index";
+import {
+  Admindashboard,
+  ProductsPage,
+  Main,
+  Login,
+  Signup,
+} from "./components/Index";
 import { Route, Routes, Navigate } from "react-router-dom";
-import Main from "./Pages/Home";
-import Signup from "./Pages/Register";
-import Login from "./Pages/Login";
 
 function App() {
   const user = localStorage.getItem("token");
 
   return (
     <Fragment>
-      <ProductsPage />
-      {/* <Admindashboard /> */}
       <Routes>
+        <Route path="/admin" to={<Admindashboard />}></Route>
+        <Route path="/products" element={<ProductsPage />}></Route>
         {user && <Route path="/" exact element={<Main />} />}
         <Route path="/signup" exact element={<Signup />} />
         <Route path="/login" exact element={<Login />} />
