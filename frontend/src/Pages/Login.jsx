@@ -19,6 +19,7 @@ const Login = () => {
       const { token } = response;
       localStorage.setItem("token", token);
       setError("");
+
       // Redirect to the home page or any other protected route after successful login
       // Replace "/home" with the route you want to redirect to
       window.location.href = "/home";
@@ -93,7 +94,7 @@ const Login = () => {
                       <div>
                         Don't have an Account?
                         <Link to="/signup">
-                          <a >Signup</a>
+                          <a>Signup</a>
                         </Link>
                       </div>
                       {error && <div className="text-danger mb-4">{error}</div>}

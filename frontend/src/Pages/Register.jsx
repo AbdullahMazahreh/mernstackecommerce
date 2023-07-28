@@ -25,6 +25,19 @@ const Signup = () => {
         setError("Passwords do not match.");
         return;
       }
+      if (data.password.length < 6) {
+        setError("Password must be at least 6 characters long.");
+        return;
+      }
+
+      // Password validation using regular expressions
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+      if (!passwordRegex.test(data.password)) {
+        setError(
+          "Password must contain at least one uppercase letter and one lowercase letter."
+        );
+        return;
+      }
 
       const url = "http://localhost:3001/api/users/";
       const { data: res } = await axios.post(url, {
