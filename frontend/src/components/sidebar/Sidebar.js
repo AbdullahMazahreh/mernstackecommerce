@@ -1,29 +1,8 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
 import "./sidebar.css";
-import { Admintable, Editfrom, NewProductForm } from "../Index";
-import { Link, Route, Routes } from "react-router-dom";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
-  const [allProducts, setAllProducts] = useState([]);
-  const id = "64bbf0cd7a6103445d20d069";
-  const [refresh, setRefresh] = useState(false);
-
-  const fetchAllProducts = async () => {
-    try {
-      const products = await axios.get(
-        `http://localhost:3001/vendor-products?vendor=${id}`
-      );
-      setAllProducts(products.data.data.allProducts);
-    } catch (err) {
-      console.log("err");
-    }
-  };
-
-  useEffect(() => {
-    fetchAllProducts();
-  }, [refresh]);
-
   return (
     <Fragment>
       <button
@@ -71,7 +50,7 @@ function Sidebar() {
           <ul className="space-y-2 font-medium">
             <li>
               <Link
-                to="/vendor-products"
+                to="/admin/vendor-products"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
                 <svg
@@ -135,26 +114,7 @@ function Sidebar() {
       </aside>
 
       <div className="p-4 sm:ml-64">
-        <Routes>
-          <Route
-            path="/vendor-products"
-            element={
-              <Admintable
-                products={allProducts}
-                setRefresh={setRefresh}
-                refresh={refresh}
-              />
-            }
-          ></Route>
-          <Route
-            path="/vendor-products/edit/:userId"
-            element={<Editfrom setRefresh={setRefresh} refresh={refresh} />}
-          ></Route>
-          <Route
-            path="/vendor-products/addproduct"
-            element={<NewProductForm setRefresh={setRefresh} refresh={refresh} />}
-          ></Route>
-        </Routes>
+          
       </div>
     </Fragment>
   );
