@@ -1,3 +1,5 @@
+import { CartProvider } from "../context/cartContext";
+
 const Main = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -7,8 +9,10 @@ const Main = () => {
   return (
     <div>
       <nav>
-        <h1>fakebook</h1>
-        <button onClick={handleLogout}>Logout</button>
+        <CartProvider>
+          <h1>fakebook</h1>
+          <button onClick={handleLogout}>Logout</button>
+        </CartProvider>
       </nav>
     </div>
   );

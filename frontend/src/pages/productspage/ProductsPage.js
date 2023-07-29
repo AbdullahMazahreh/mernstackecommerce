@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import "./productspage.css";
 import { FilterationSideBar } from "../../components/Index";
-
+import { CartProvider } from "../../context/cartContext";
 function ProductsPage() {
   return (
     <Fragment>
-      <FilterationSideBar />
+      <CartProvider>
+        <FilterationSideBar />
+      </CartProvider>
     </Fragment>
   );
 }

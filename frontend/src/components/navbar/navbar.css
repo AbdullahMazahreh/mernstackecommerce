@@ -1,3 +1,6 @@
 .custom-bg-color {
-    background-color: #fcc69a;
+  background-color: #000;
+}
+a {
+  color: #000 !important;
 }

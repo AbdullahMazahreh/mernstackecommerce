@@ -16,14 +16,15 @@ function Navbar() {
     <Fragment>
       <nav class="bg-gray-50 border-gray-200 dark:bg-gray-900">
         <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-          <a href="https://flowbite.com" class="flex items-center">
+          <a href="/home" class="flex items-center">
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              class="h-8 mr-3"
-              alt="Flowbite Logo"
+              src="https://cdn.discordapp.com/attachments/1126044590454087792/1134841377591672842/Minimalist_Letter_Initial_Technology_Logo_4.png"
+              classname="h-5 mr-3 "
+              style={{ height: "80px" }}
             />
+
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+              &nbsp; Zone Tech
             </span>
           </a>
           <div class="flex items-center">

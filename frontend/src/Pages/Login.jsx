@@ -25,9 +25,9 @@ const Login = () => {
       for (let i = 0; i < allData.length; i++) {
         if (allData[i].email === data.email) {
           if (allData[i].password === data.password) {
+            console.log("done");
             setUserId(allData[i]);
             setIsSignedIn(true);
-            console.log("done");
             navigate("/home");
             break;
           }

@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { CartProvider } from "../../context/cartContext";
 import {
   Hero,
   Gategory,
@@ -11,12 +12,14 @@ import {
 function Landingpage() {
   return (
     <Fragment>
-      <Hero />
-      <Gategory />
-      <Goodsnew />
-      <Goodspoular />
-      <Supersale />
-      <Newblog />
+      <CartProvider>
+        <Hero />
+        <Gategory />
+        <Goodsnew />
+        <Goodspoular />
+        <Supersale />
+        <Newblog />
+      </CartProvider>
     </Fragment>
   );
 }

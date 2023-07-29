@@ -1,23 +1,20 @@
-
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react'
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
 import "./Hero.css";
-import hero from'./hero.png'
+import heroquality from "./heroquality.png";
 
 const Hero = () => {
   return (
     <div className="container custom-margin-top">
-    <div className="d-flex justify-content-center">
-    <img src={hero} alt="Centered Image"  style={{ width: '80%', height: '250px' }}/>
-  </div>
-  </div>
-  )
-}
+      <div className="d-flex justify-content-center">
+        <img
+          src={heroquality}
+          alt="Centered Image"
+          style={{ width: "90%", height: "400px" }}
+        />
+      </div>
+    </div>
+  );
+};
 
-export default Hero
-
-
-
-
+export default Hero;

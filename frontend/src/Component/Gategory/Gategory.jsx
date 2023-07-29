@@ -16,17 +16,22 @@ const Gategory = () => {
 
           <div class="container mt-5">
             <div class="row justify-content-center">
-              <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3  ">
                 <div
-                  class="card bg-gray"
+                  class="card bg-gray d-flex justify-content-center align-items-center"
                   style={{ width: "60%", height: "200px" }}
                 >
                   <div
-                    class="card-body"
+                    className="card-body d-flex-col  justify-content-center align-items-center"
                     style={{ textAlign: "center", paddingTop: "50px" }}
                   >
-                    <img src={phone} alt="Icon 3" class="icon" />
-                    <p class="card-title">Smartphones and tablets</p>
+                    <img
+                      src={phone}
+                      alt="Icon 3"
+                      class="icon"
+                      style={{ marginRight: "0" }}
+                    />
+                    <p class="card-title text-bold">Smartphones and tablets</p>
                   </div>
                 </div>
               </div>

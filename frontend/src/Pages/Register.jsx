@@ -164,8 +164,8 @@ const Signup = () => {
                           <a href="#!">Terms of service</a>
                         </label>
                       </div>
-                      <div>
-                        Already have an Account?
+                      <div style={{ marginBottom: "10px" }}>
+                        Already have an Account? &nbsp;
                         <Link to="/login">
                           <a type="button">Sign in</a>
                         </Link>
