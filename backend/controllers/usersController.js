@@ -6,6 +6,32 @@ const User = require("../models/UserModel");
 //@Register new User
 //@Route: Post/api/users
 //@Access: Pubic
+
+const getOneUser = async (req, res) => {
+  try {
+    const oneUser = await User.find({ _id: req.query.id });
+    res.status(200).json({
+      oneUser: oneUser,
+    });
+  } catch (err) {
+    res.status(400);
+  }
+};
+
+const editOneUser = async (req, res) => {
+  try {
+    const oneUser = await User.findOneAndUpdate(
+      { _id: req.query.id },
+      { ...req.body }
+    );
+    res.status(200).json({
+      oneUser: oneUser,
+    });
+  } catch (err) {
+    res.status(400);
+  }
+};
+
 const getAllUsers = async (req, res) => {
   try {
     const allUsers = await User.find();
@@ -93,4 +119,11 @@ const generateToken = (id) => {
   return jwb.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
 };
 
-module.exports = { registerUser, loginUser, getMe, getAllUsers };
+module.exports = {
+  registerUser,
+  loginUser,
+  getMe,
+  getAllUsers,
+  editOneUser,
+  getOneUser,
+};

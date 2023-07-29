@@ -21,6 +21,7 @@ function Navbar() {
               src="https://cdn.discordapp.com/attachments/1126044590454087792/1134841377591672842/Minimalist_Letter_Initial_Technology_Logo_4.png"
               classname="h-5 mr-3 "
               style={{ height: "80px" }}
+              alt="logo"
             />
 
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -70,9 +71,12 @@ function Navbar() {
                 </Link>
               </li>
               <li>
-                <a href="/" class="text-white dark:text-white hover:underline">
+                <Link
+                  to="/cart"
+                  class="text-white dark:text-white hover:underline"
+                >
                   Cart
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

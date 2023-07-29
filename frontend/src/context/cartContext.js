@@ -46,8 +46,8 @@ export function CartProvider({ children }) {
     }
     // req to update the cart items
     axios
-      .patch(`http://localhost:3001/carts/${cartId}`, {
-        cartItems: updatedCartItems,
+      .patch(`http://localhost:3001/api/users/updateuser?id=${cartId}`, {
+        currentCart: updatedCartItems,
       })
       .then(() => {
         setCartItems(updatedCartItems);

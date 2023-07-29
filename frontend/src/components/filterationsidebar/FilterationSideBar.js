@@ -9,13 +9,13 @@ function FilterationSideBar() {
     try {
       const products = await axios.get("http://localhost:3001/api/v1/products");
       setAllProducts(products.data.data.products);
-    } catch (err) { 
+    } catch (err) {
       console.log(err);
     }
   };
 
   const displayProducts = allProducts.map((ele) => {
-    return <ProductCard />;
+    return <ProductCard product={ele} />;
   });
 
   useEffect(() => {
